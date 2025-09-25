@@ -4,7 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    return "Hola desde la página de inicio";
+    return route ('cursos.show', ['id' => 1]);
+
+
+    return route('cursos.informacion');
+
+   // return "Hola desde la página de inicio";
 
   //  return view('welcome');
 });
@@ -32,7 +37,8 @@ Route::match(['get', 'post'], '/contacto', function () {
     return "Hola desde la página de contacto usando el método GET o POST";
 
 });
-*/
+//COMENTO PARA OBSERVAR LOS CAMBIOS
+
 Route::get('cursos/informacion', function () {
   
     return "Aquí encontrarás toda la información de nuestros cursos";
@@ -55,3 +61,15 @@ Route::get('/cursos/{curso}/{categoria?}', function ($curso, $categoria = null) 
     }
 });
 */
+// RENOMBRAR RUTAS
+Route::get('cursos/informacion', function () {
+  
+    return "Aquí encontrarás toda la información de nuestros cursos";
+})->name('cursos.informacion');
+
+
+
+Route::get('/cursos/{id}', function ($id) {
+
+    return "Bienvenido al curso con id : $id";
+})->name('cursos.show');
