@@ -1,18 +1,15 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/', [HomeController::class, 'index']);
 
-    return route ('cursos.show', ['id' => 1]);
-
-
-    return route('cursos.informacion');
-
-   // return "Hola desde la página de inicio";
+   
 
   //  return view('welcome');
-});
+
 
 
 Route::get('/contacto', function () {
@@ -61,15 +58,34 @@ Route::get('/cursos/{curso}/{categoria?}', function ($curso, $categoria = null) 
     }
 });
 */
-// RENOMBRAR RUTAS
-Route::get('cursos/informacion', function () {
-  
-    return "Aquí encontrarás toda la información de nuestros cursos";
-})->name('cursos.informacion');
 
+/*
+// DEFINICIÓN DE RUTAS PARA EL CRUD
 
+//Ruta para mostrar el listado de registros
+Route::get('/post', [PostController::class, 'index'])->name('post.index');
 
-Route::get('/cursos/{id}', function ($id) {
+//Ruta para mostrar un formulario para crear un registro
+Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 
-    return "Bienvenido al curso con id : $id";
-})->name('cursos.show');
+//Ruta para guardar un registro
+Route::post('/post', [PostController::class, 'store'])->name('post.store');
+
+//Ruta para mostrar un registro
+Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
+
+//Ruta para mostrar un formulario para editar un registro
+Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+
+//Ruta para actualizar un registro
+Route::put('/post/{post}', [PostController::class, 'update'])->name('post.update');
+
+//Ruta para eliminar un registro
+Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
+*/
+// DEFINICIÓN DE RUTAS PARA EL CRUD USANDO RESOURCE 
+Route::resource('articulos', PostController::class)
+->parameters(['articulos' => 'post'])
+->names('post');
+
+// ESTA LÍNEA SUSTITUYE A TODAS LAS ANTERIORES DEL CRUD
