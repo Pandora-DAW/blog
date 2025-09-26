@@ -8,12 +8,12 @@ class PostController extends Controller
 {
     public function index()
     {
-        return "Hola desde la página de posts";
+        return view('posts.index');
     }   
 
     public function create()
     {
-        return "Aquí se mostrará el formulario para crear un post";
+        return view('posts.create');
     }
 
     public function store()
@@ -23,12 +23,13 @@ class PostController extends Controller
 
     public function show($post)
     {
-        return "Aquí se mostrará el post: $post";
-    }
+      //  return view('posts.show',['post'=>$post]);
+        return view('posts.show',compact('post'));
+    }   
 
-    public function edit($post)
+     public function edit($post)
     {
-        return "Aquí se mostrará el formulario para editar el post: $post";
+        return view('posts.edit',compact('post'));
     }
 
     public function update($post)

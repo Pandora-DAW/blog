@@ -4,7 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', HomeController::class);
 
    
 
@@ -59,9 +59,33 @@ Route::get('/cursos/{curso}/{categoria?}', function ($curso, $categoria = null) 
 });
 */
 
-/*
 // DEFINICIÓN DE RUTAS PARA EL CRUD
+//REUTILIZACIÓN PARA MOSTRAR EL AGRUPAMIENTO DE RUTAS
+/*
+Route::controller(PostController::class)->group(function () {
+    Route::get('/post', 'index')->name('post.index');
+    Route::get('/post/create', 'create')->name('post.create');
+    Route::post('/post', 'store')->name('post.store');
+    Route::get('/post/{post}', 'show')->name('post.show');
+    Route::get('/post/{post}/edit', 'edit')->name('post.edit');
+    Route::put('/post/{post}', 'update')->name('post.update');
+    Route::delete('/post/{post}', 'destroy')->name('post.destroy');
+});
+*/
 
+// SIMPLIFICANDO AÚN MÁS EL AGRUPAPIENTO DE RUTAS
+Route::prefix('post')->name('post.')->controller(PostController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{post}', 'show')->name('show');
+    Route::get('/{post}/edit', 'edit')->name('edit');
+    Route::put('/{post}', 'update')->name('update');
+    Route::delete('/{post}', 'destroy')->name('destroy');
+});
+
+
+/*
 //Ruta para mostrar el listado de registros
 Route::get('/post', [PostController::class, 'index'])->name('post.index');
 
@@ -84,8 +108,10 @@ Route::put('/post/{post}', [PostController::class, 'update'])->name('post.update
 Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 */
 // DEFINICIÓN DE RUTAS PARA EL CRUD USANDO RESOURCE 
+/*
 Route::resource('articulos', PostController::class)
 ->parameters(['articulos' => 'post'])
 ->names('post');
+*/
 
 // ESTA LÍNEA SUSTITUYE A TODAS LAS ANTERIORES DEL CRUD

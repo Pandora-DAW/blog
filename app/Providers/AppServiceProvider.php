@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+ 
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,5 +36,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Route::pattern('id', '[0-9]+');
 
+    //Ahora cambiamos el idioma de los verbos del CRUD al español
+    //PARA SEGUIR USANDO LA CONVENCIÓN DE LARAVEL, USAMOS LOS VERBOS EN INGLÉS, Y POR TANTO ELIMINAMOS ESTE CÓDIGO
+    // Route::resourceVerbs([
+    //     'create' => 'crear',
+    //     'edit' => 'editar',
+    // ]);
+
     }
-}
+}   
