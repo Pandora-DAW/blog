@@ -9,10 +9,38 @@
 <body>
     <h1>Aquí se mostrará el listado de posts</h1>
 
-    <script>
-        let posts = @json($posts)
-        console.log(posts);
-    </script>
+    @if(true)
+        <p>Este mensaje se mostrará si el valor de la condicional es verdadero</p>
+    @else
+        <p>Este mensaje se mostrará si el valor de la condicional es falso</p>
+    @endif
+
+
+    @unless(false)
+        <p>Le has pasado el valor de false a la directiva unless</p>
+    @endunless
+
+    @isset($prueba)
+        <p>La variable existe y tiene un valor asignado</p>
+    @else
+        <p>La variable no existe o no tiene un valor asignado</p>
+    @endisset
+
+    @empty($prueba)
+        <p>La variable no existe o está vacía</p>
+    @endempty
+
+ 
+
+
+
+
+
+
+
+
+
+
 
    
     
