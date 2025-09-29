@@ -8,6 +8,15 @@
 </head>
 <body>
     <h1>Aquí se mostrará el listado de posts</h1>
+
+    {!! $etiqueta !!}
+
+    {{ $prueba }} <!-- Usando blade php
+    {{-- {{!! $etiqueta !!}} --}} // Usando blade para etiquetas html
+
+    {{-- Comentario de blade --}} ->
+
+  <!-- @{{ $prueba }} Usando javascript -->
     
 </body>
 </html>
