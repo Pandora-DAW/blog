@@ -8,13 +8,17 @@
 </head>
 <body>
     <ul>
-    @foreach ($posts as $post)
+        
+    @forelse ($posts as $post)
         <li>
             <h2>{{ $post['title'] }}</h2>
             <p>{{ $post['content'] }}</p>
         </li>
-    @endforeach
 
+        @empty
+            <li>No hay posts disponibles.</li>
+
+    @endforelse
     </ul>
    
     
