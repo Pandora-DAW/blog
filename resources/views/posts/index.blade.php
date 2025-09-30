@@ -10,9 +10,9 @@
     
        @for ($i = 1; $i <= $count; $i++)
 
-       @if ($i % 3 == 0)
-       @continue
-       @endif
+       
+       @continue($i % 2 == 0)
+         {{-- La directiva @continue nos permite saltar a la siguiente iteración del bucle cuando se cumple una condición específica. En este caso, si $i es múltiplo de 3, la directiva @continue hará que el bucle salte esa iteración y continúe con la siguiente. --}}
 
             <p>{{ $i }} </p>      
                 
