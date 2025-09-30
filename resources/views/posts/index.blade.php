@@ -11,13 +11,15 @@
        @for ($i = 1; $i <= $count; $i++)
 
        
-       @continue($i % 2 == 0)
-         {{-- La directiva @continue nos permite saltar a la siguiente iteración del bucle cuando se cumple una condición específica. En este caso, si $i es múltiplo de 3, la directiva @continue hará que el bucle salte esa iteración y continúe con la siguiente. --}}
+       @break($i % 8 == 0)
+         {{-- La directiva @break nos permite salir del bucle cuando se cumple una condición específica. En este caso, si $i es múltiplo de 8, la directiva @break hará que el bucle se detenga. --}}
 
             <p>{{ $i }} </p>      
                 
             
         @endfor 
+
+        <p><b>Saliste del bucle</b></p>
 
 
    
