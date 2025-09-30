@@ -12,13 +12,12 @@
         @foreach ($posts as $post)
             
                 <h2>{{ $post['title'] }}
-                    @if ($loop->first)
-                        (Primera iteración)
-                    @endif
+
+                    (Iteración: {{ $loop->iteration }})
                     
-                    @if ($loop->last)
-                        (Última iteración)
-                    @endif
+
+                    {{--  (Indice: {{ $loop->index }}) --}}
+
                 </h2>
                 <p>{{ $post['content'] }}</p>
             
