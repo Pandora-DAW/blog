@@ -13,33 +13,35 @@
         .color-green {
             color: green;
         }
-
-
-
     </style>
 </head>
 <body>
     
-    <ul>
-       
-        @foreach ($posts as $post)
-              <li @class([
-                'color-red' => $loop->first,
-                 'color-green' => $loop->last])>
-            
-                <h2>{{ $post['title'] }}</h2>
-                <p>{{ $post['content'] }}</p>
+<form action="">
+    <div>
+        <label><input type="checkbox" @checked(true) name="paises[]" id="">Perú</label>
+        <label><input type="checkbox" name="paises[]" id="">Argentina</label>
+        <label><input type="checkbox" name="paises[]" id="">Chile</label>
+        <label><input type="checkbox" name="paises[]" id="">Colombia</label>
+    </div>
+
+    <div>
+        <input type="text" @readonly(true) >
+        {{-- <input type="text" @required(true) > --}}
+    </div>
 
 
-                </li>  
-        @endforeach
-       
-                    
-    </ul>
-    
+<div>
+    <select name="ciudad">
+        <option value="1">Lima</option>
+        <option value="2" selected>Cusco</option>
+        <option value="3" @selected(true)>Arequipa</option>
+        <option value="4">Trujillo</option>
+    </select>
+</div>
+<button @disabled(true)>Enviar</button>
 
-
-
+</form>
    
 
    
