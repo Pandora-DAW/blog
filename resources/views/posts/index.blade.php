@@ -7,19 +7,34 @@
     <title>Coders Free</title>
 </head>
 <body>
-    <ul>
-        
-    @forelse ($posts as $post)
-        <li>
-            <h2>{{ $post['title'] }}</h2>
-            <p>{{ $post['content'] }}</p>
-        </li>
+    
+    {{--    @for ($i = 1; $i <= $count; $i++)
 
-        @empty
-            <li>No hay posts disponibles.</li>
+            <p>
 
-    @endforelse
-    </ul>
+                @for ($j = 1; $j <= $i; $j++)
+                    *
+                @endfor
+                
+                </p>
+            
+        @endfor --}}
+
+            @php
+                $i= 1;
+            @endphp 
+
+        @while ($i <= $count)
+
+            <p>* </p>
+
+        @php
+            $i += 1;
+        @endphp 
+            
+        @endwhile
+   
+
    
     
 </body>
