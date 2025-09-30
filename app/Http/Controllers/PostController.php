@@ -14,10 +14,12 @@ class PostController extends Controller
             ['title' => 'Post 3', 'content' => 'Contenido del post 3']           
         ];
 
+        $dia = 5;
+
 
 
       //  $etiqueta = "<p>Este es un párrafo</p>";
-        return view('posts.index',compact('posts'));
+        return view('posts.index',compact('dia'));
     }   
 
     public function create()
