@@ -7,19 +7,26 @@
     <title>Coders Free</title>
 </head>
 <body>
-    
-       @for ($i = 1; $i <= $count; $i++)
 
-       
-       @break($i % 8 == 0)
-         {{-- La directiva @break nos permite salir del bucle cuando se cumple una condición específica. En este caso, si $i es múltiplo de 8, la directiva @break hará que el bucle se detenga. --}}
-
-            <p>{{ $i }} </p>      
-                
+    <ul>
+        @foreach ($posts as $post)
             
-        @endfor 
+                <h2>{{ $post['title'] }}
+                    @if ($loop->first)
+                        (Primera iteración)
+                    @endif
+                    
+                    @if ($loop->last)
+                        (Última iteración)
+                    @endif
+                </h2>
+                <p>{{ $post['content'] }}</p>
+            
+        @endforeach
+                    
+    </ul>
+    
 
-        <p><b>Saliste del bucle</b></p>
 
 
    

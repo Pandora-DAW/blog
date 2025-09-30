@@ -15,8 +15,8 @@ class PostController extends Controller
         ]; 
 
 
-        $count = 10;
-        return view('posts.index', compact('posts','count'));
+       
+        return view('posts.index', compact('posts'));
     }
 
     public function create()
