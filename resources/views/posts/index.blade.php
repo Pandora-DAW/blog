@@ -8,31 +8,18 @@
 </head>
 <body>
     
-    {{--    @for ($i = 1; $i <= $count; $i++)
+       @for ($i = 1; $i <= $count; $i++)
 
-            <p>
+       @if ($i % 3 == 0)
+       @continue
+       @endif
 
-                @for ($j = 1; $j <= $i; $j++)
-                    *
-                @endfor
+            <p>{{ $i }} </p>      
                 
-                </p>
             
-        @endfor --}}
+        @endfor 
 
-            @php
-                $i= 1;
-            @endphp 
 
-        @while ($i <= $count)
-
-            <p>* </p>
-
-        @php
-            $i += 1;
-        @endphp 
-            
-        @endwhile
    
 
    
