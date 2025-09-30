@@ -5,29 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coders Free</title>
+
+    <style>
+        .color-red {
+            color: red;
+        }
+        .color-green {
+            color: green;
+        }
+
+
+
+    </style>
 </head>
 <body>
     
     <ul>
        
         @foreach ($posts as $post)
-              <li>
+              <li @class([
+                'color-red' => $loop->first,
+                 'color-green' => $loop->last])>
             
-                <h2>{{ $post['title'] }}
-
-                    (Iteración restantes: {{ $loop->remaining }})
-                    
-
-                    {{--  (Indice: {{ $loop->index }}) --}}
-
-                </h2>
+                <h2>{{ $post['title'] }}</h2>
                 <p>{{ $post['content'] }}</p>
 
-                <ul>
-                    @foreach ($post['tags'] as $tag)
-                        <li>{{ $tag }}</li>
-                    @endforeach
-                </ul>
+
                 </li>  
         @endforeach
        
