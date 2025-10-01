@@ -6,45 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coders Free</title>
 
-    <style>
-        .color-red {
-            color: red;
-        }
-        .color-green {
-            color: green;
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
 <body>
-    
-<form action="">
-    <div>
-        <label><input type="checkbox" @checked(true) name="paises[]" id="">Perú</label>
-        <label><input type="checkbox" name="paises[]" id="">Argentina</label>
-        <label><input type="checkbox" name="paises[]" id="">Chile</label>
-        <label><input type="checkbox" name="paises[]" id="">Colombia</label>
+    <div class="container mx-auto my-12>
+        <x-alert type="Warning">
+            <x-slot name="title">
+                Alert
+            </x-slot>
+            Error en su formulario
+        </x-alert>
     </div>
 
-    <div>
-        <input type="text" @readonly(true) >
-        {{-- <input type="text" @required(true) > --}}
-    </div>
-
-
-<div>
-    <select name="ciudad">
-        <option value="1">Lima</option>
-        <option value="2" selected>Cusco</option>
-        <option value="3" @selected(true)>Arequipa</option>
-        <option value="4">Trujillo</option>
-    </select>
-</div>
-<button @disabled(true)>Enviar</button>
-
-</form>
-   
-
-   
     
 </body>
 </html>
