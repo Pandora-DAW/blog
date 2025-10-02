@@ -1,8 +1,9 @@
-<x-app-layout>
-    
-    <x-slot name="title">
-        Posts
-    </x-slot>
+@extends('layouts.app2')
+
+@section('title', 'Coders Free')
+
+
+@section('content') 
 
     <x-container width= "7xl">
         <x-alert class="mb-32" type="danger">
@@ -14,6 +15,4 @@
        
     </x-container>
 
-    
-</x-app-layout>
-path: resources/views/components/app-layout.blade.php
+@endsection
