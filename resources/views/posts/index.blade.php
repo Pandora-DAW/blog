@@ -2,6 +2,10 @@
 
 @section('title', 'Coders Free')
 
+@push('meta')
+    <meta name="description" content="Blog de coders free">
+    @endpush
+
 
 @section('content') 
 
