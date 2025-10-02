@@ -10,14 +10,15 @@
 
 </head>
 <body>
-    <div class="container mx-auto my-12>
-        <x-alert type="Warning">
+    <x-container width= "7xl">
+        <x-alert class="mb-32" type="danger">
             <x-slot name="title">
                 Alert
             </x-slot>
             Error en su formulario
         </x-alert>
-    </div>
+        <p>Hola mundo</p>
+    </x-container>
 
     
 </body>
